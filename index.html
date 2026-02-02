@@ -1,0 +1,485 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Attila Hartmann | Frontend Web Developer</title>
+    <meta
+      name="description"
+      content="Attila Hartmann — Frontend Web Developer (Angular). Building modern enterprise web apps with Angular, RxJS, NgRx, PrimeNG, and Material."
+    />
+
+    <!-- Open Graph -->
+    <meta
+      property="og:title"
+      content="Attila Hartmann | Frontend Web Developer"
+    />
+    <meta
+      property="og:description"
+      content="Frontend Web Developer (Angular) based in Budapest, Hungary. Experience in enterprise apps, UI libraries, CI/CD and automation."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="assets/og-image.png" />
+
+    <!-- Favicon -->
+    <link rel="icon" href="data:," />
+
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <!-- Top bar -->
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="Home">
+        <span class="brand-dot"></span>
+        <span>Attila Hartmann</span>
+      </a>
+
+      <nav class="nav" aria-label="Primary">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#education">Education</a>
+        <a href="#contact" class="nav-cta">Contact</a>
+      </nav>
+
+      <button
+        class="menu-btn"
+        id="menuBtn"
+        aria-label="Open menu"
+        aria-expanded="false"
+      >
+        <span></span><span></span><span></span>
+      </button>
+    </header>
+
+    <!-- Mobile menu -->
+    <div class="mobile-nav" id="mobileNav" aria-hidden="true">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#education">Education</a>
+      <a href="#contact">Contact</a>
+    </div>
+
+    <main id="top">
+      <!-- Hero -->
+      <section class="hero">
+        <div class="container hero-grid">
+          <div class="hero-copy">
+            <p class="badge">Frontend Web Developer</p>
+            <h1>
+              Building modern enterprise web apps with
+              <span class="accent">Angular</span>.
+            </h1>
+            <p class="subtitle">
+              Based in Budapest, Hungary — I design and develop high-quality UI
+              for complex workflow and record management applications. Strong
+              focus on clean code, UI/UX, and team delivery.
+            </p>
+
+            <div class="hero-actions">
+              <a class="btn primary" href="#contact">Get in touch</a>
+              <a class="btn ghost" href="#experience">View experience</a>
+            </div>
+
+            <div class="hero-links">
+              <a
+                href="mailto:hartmann.attila88@gmail.com"
+                class="chip"
+                aria-label="Email"
+              >
+                Email
+              </a>
+              <a
+                href="https://www.linkedin.com/in/attila-hartmann-b7b41a24b/"
+                target="_blank"
+                rel="noreferrer"
+                class="chip"
+              >
+                LinkedIn
+              </a>
+              <a
+                href="https://github.com/Attila-Hartmann/Pet-Projects"
+                target="_blank"
+                rel="noreferrer"
+                class="chip"
+              >
+                GitHub
+              </a>
+              <a
+                href="https://attila-hartmann.web.app/"
+                target="_blank"
+                rel="noreferrer"
+                class="chip"
+              >
+                Portfolio
+              </a>
+            </div>
+          </div>
+
+          <div class="hero-card">
+            <div class="avatar-wrap">
+              <!-- Put your photo in assets/profile.jpg -->
+              <img
+                class="avatar"
+                src="assets/profile.jpg"
+                alt="Attila Hartmann portrait"
+              />
+              <div class="ring"></div>
+            </div>
+
+            <div class="hero-stats">
+              <div class="stat">
+                <div class="stat-num">3+ yrs</div>
+                <div class="stat-label">Frontend (Angular)</div>
+              </div>
+              <div class="stat">
+                <div class="stat-num">CI/CD</div>
+                <div class="stat-label">GitLab · Azure DevOps</div>
+              </div>
+              <div class="stat">
+                <div class="stat-num">UI</div>
+                <div class="stat-label">Material · PrimeNG · NG-ZORRO</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- About -->
+      <section id="about" class="section">
+        <div class="container">
+          <div class="section-head">
+            <h2>About</h2>
+            <p>
+              Frontend Web Developer experienced in Angular-based enterprise
+              applications and UI component libraries.
+            </p>
+          </div>
+
+          <div class="card about-card">
+            <p>
+              I’m a Frontend Web Developer working with Angular, RxJS, NgRx and
+              modern UI frameworks. I collaborate in agile teams to deliver
+              complex enterprise solutions (workflow / record management / GIS),
+              translate UI/UX designs into production-ready code, and contribute
+              to testing, automation and documentation.
+            </p>
+            <div class="about-meta">
+              <div class="meta-item">
+                <span class="meta-k">Location</span>
+                <span class="meta-v">Budapest, Hungary</span>
+              </div>
+              <div class="meta-item">
+                <span class="meta-k">Languages</span>
+                <span class="meta-v"
+                  >Hungarian (Native), English (Professional), German
+                  (Limited)</span
+                >
+              </div>
+              <div class="meta-item">
+                <span class="meta-k">Top skills</span>
+                <span class="meta-v">GitLab · CI · CD</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Skills -->
+      <section id="skills" class="section alt">
+        <div class="container">
+          <div class="section-head">
+            <h2>Skills</h2>
+            <p>Frameworks, tools and technologies I work with.</p>
+          </div>
+
+          <div class="grid skills-grid">
+            <div class="card">
+              <h3>Frameworks & UI</h3>
+              <div class="tags">
+                <span class="tag">Angular</span>
+                <span class="tag">Angular Material</span>
+                <span class="tag">PrimeNG</span>
+                <span class="tag">NG-ZORRO</span>
+                <span class="tag">NgRx</span>
+                <span class="tag">RxJS</span>
+              </div>
+            </div>
+
+            <div class="card">
+              <h3>Languages</h3>
+              <div class="tags">
+                <span class="tag">TypeScript</span>
+                <span class="tag">JavaScript</span>
+                <span class="tag">HTML</span>
+                <span class="tag">CSS / SCSS</span>
+                <span class="tag">SQL</span>
+                <span class="tag">Python</span>
+              </div>
+            </div>
+
+            <div class="card">
+              <h3>Backend & DB</h3>
+              <div class="tags">
+                <span class="tag">Node.js</span>
+                <span class="tag">Express</span>
+                <span class="tag">Firebase</span>
+                <span class="tag">MongoDB</span>
+                <span class="tag">PostgreSQL</span>
+              </div>
+            </div>
+
+            <div class="card">
+              <h3>DevOps & Testing</h3>
+              <div class="tags">
+                <span class="tag">GitLab</span>
+                <span class="tag">CI/CD</span>
+                <span class="tag">Azure DevOps</span>
+                <span class="tag">Selenium</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Experience -->
+      <section id="experience" class="section">
+        <div class="container">
+          <div class="section-head">
+            <h2>Experience</h2>
+            <p>Selected roles and responsibilities.</p>
+          </div>
+
+          <div class="timeline">
+            <article class="card timeline-item">
+              <div class="timeline-top">
+                <h3>Frontend Web Developer</h3>
+                <p class="muted">
+                  Fornax · Mar 2023 – Present · Budapest, Hungary
+                </p>
+              </div>
+              <ul class="list">
+                <li>
+                  Developing frontend/GUI features for complex enterprise
+                  applications.
+                </li>
+                <li>
+                  Angular UI development, translating UI/UX wireframes into
+                  code.
+                </li>
+                <li>Working with Material, PrimeNG, NG-ZORRO.</li>
+                <li>UI test automation (Selenium).</li>
+                <li>DevOps: Azure DevOps integration with GitLab.</li>
+                <li>Custom Keycloak themes and designs.</li>
+              </ul>
+            </article>
+
+            <article class="card timeline-item">
+              <div class="timeline-top">
+                <h3>Frontend Web Developer / IT Business Analyst</h3>
+                <p class="muted">
+                  Digitális Kormányzati Fejlesztés és Projektmenedzsment Kft. ·
+                  Jan 2022 – Mar 2023 · Budapest, Hungary
+                </p>
+              </div>
+              <ul class="list">
+                <li>
+                  Planning and implementing new frontend/GUI features in agile
+                  teams.
+                </li>
+                <li>Testing, bug fixing and documentation.</li>
+                <li>
+                  Requirement specifications and templates for digital
+                  government projects.
+                </li>
+                <li>
+                  Participation in service design and lean inception workshops.
+                </li>
+              </ul>
+            </article>
+
+            <article class="card timeline-item">
+              <div class="timeline-top">
+                <h3>Project Coordinator</h3>
+                <p class="muted">
+                  Educational District Centre of South Buda · Apr 2020 – Jan
+                  2022 · Budapest, Hungary
+                </p>
+              </div>
+              <ul class="list">
+                <li>
+                  Project management across procurement and operations
+                  processes.
+                </li>
+                <li>
+                  Partner coordination, reporting, budget monitoring and
+                  analysis.
+                </li>
+              </ul>
+            </article>
+
+            <article class="card timeline-item">
+              <div class="timeline-top">
+                <h3>Project Manager / Project Coordinator</h3>
+                <p class="muted">
+                  Camp Leaders · Sep 2015 – Mar 2020 · Budapest, Hungary
+                </p>
+              </div>
+              <ul class="list">
+                <li>
+                  Business development, stakeholder management, operational
+                  excellence.
+                </li>
+                <li>
+                  Team coordination, planning, reporting and process
+                  improvements.
+                </li>
+              </ul>
+            </article>
+
+            <article class="card timeline-item">
+              <div class="timeline-top">
+                <h3>Junior Real Estate Business Analyst & Consultant</h3>
+                <p class="muted">
+                  Portus Buda Group Zrt. · May 2012 – Jun 2015 · Budapest,
+                  Hungary
+                </p>
+              </div>
+              <ul class="list">
+                <li>
+                  Financial planning, forecasting, feasibility studies, market
+                  analysis.
+                </li>
+                <li>CRM/database management and advisory project support.</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Education -->
+      <section id="education" class="section alt">
+        <div class="container">
+          <div class="section-head">
+            <h2>Education & Certifications</h2>
+            <p>Training and professional learning.</p>
+          </div>
+
+          <div class="grid edu-grid">
+            <div class="card">
+              <h3>Education</h3>
+              <ul class="list compact">
+                <li>
+                  <strong>PROGmasters</strong> — Junior Frontend Developer (Sep
+                  2021 – Mar 2022)
+                </li>
+                <li>
+                  <strong>Academind</strong> — Angular, Angular Material, NgRx
+                  (Feb 2023 – Mar 2023)
+                </li>
+                <li>
+                  <strong>Udemy</strong> — Web Development (Sep 2022 – Nov 2022)
+                </li>
+                <li>
+                  <strong>Udemy</strong> — PostgreSQL (Sep 2022 – Oct 2022)
+                </li>
+                <li>
+                  <strong>NSZFH</strong> — Basics of Corporate Web Development
+                  (Aug 2021 – Sep 2021)
+                </li>
+              </ul>
+            </div>
+
+            <div class="card">
+              <h3>Certifications</h3>
+              <ul class="list compact">
+                <li>e-Administration Expert</li>
+                <li>Junior Frontend Developer</li>
+                <li>
+                  Angular (Full App) with Angular Material, Angularfire & NgRx
+                </li>
+                <li>The Complete SQL Bootcamp 2022</li>
+                <li>The Web Developer Bootcamp 2022</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section id="contact" class="section">
+        <div class="container">
+          <div class="section-head">
+            <h2>Contact</h2>
+            <p>Want to work together? Let’s connect.</p>
+          </div>
+
+          <div class="grid contact-grid">
+            <div class="card">
+              <h3>Message</h3>
+              <p class="muted">
+                Best way to reach me is email. You can also connect on LinkedIn.
+              </p>
+
+              <div class="contact-actions">
+                <a class="btn primary" href="mailto:hartmann.attila88@gmail.com"
+                  >Email me</a
+                >
+                <a
+                  class="btn ghost"
+                  href="https://www.linkedin.com/in/attila-hartmann-b7b41a24b/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  LinkedIn
+                </a>
+              </div>
+            </div>
+
+            <div class="card">
+              <h3>Links</h3>
+              <ul class="link-list">
+                <li>
+                  <a
+                    href="https://github.com/Attila-Hartmann/Pet-Projects"
+                    target="_blank"
+                    rel="noreferrer"
+                    >GitHub — Pet Projects</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://attila-hartmann.web.app/"
+                    target="_blank"
+                    rel="noreferrer"
+                    >Portfolio — attila-hartmann.web.app</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-inner">
+        <p>© <span id="year"></span> Attila Hartmann</p>
+        <p class="muted">Built with LinkedIn-inspired styling.</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
