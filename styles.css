@@ -533,18 +533,17 @@ a {
   }
 
   .menu-expand {
-    content: "";
     display: inline-block;
     width: 1em;
     height: 1em;
-    mask: url(/assets/menu-burger.svg) no-repeat center / contain;
-    -webkit-mask: url(/assets/menu-burger.svg) no-repeat center / contain;
+    mask: url(assets/menu-burger.svg) no-repeat center / contain;
+    -webkit-mask: url(assets/menu-burger.svg) no-repeat center / contain;
     background-color: var(--muted);
   }
 
   .menu-btn[aria-expanded="true"] .menu-expand {
-    mask: url(/assets/close.svg) no-repeat center / contain;
-    -webkit-mask: url(/assets/close.svg) no-repeat center / contain;
+    mask: url(assets/close.svg) no-repeat center / contain;
+    -webkit-mask: url(assets/close.svg) no-repeat center / contain;
   }
 
   .menu-btn:hover {
