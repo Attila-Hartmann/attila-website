@@ -220,7 +220,7 @@ a {
 
 /* Sections */
 .section {
-  padding: 86px 0;
+  padding: 50px 0;
 }
 .section.alt {
   background: var(--surface-1);
@@ -245,7 +245,7 @@ a {
 
 /* Hero */
 .hero {
-  padding: 86px 0 50px;
+  padding: 50px 0;
 }
 .hero-grid {
   display: grid;
@@ -488,6 +488,7 @@ a {
 }
 .link-list a {
   font-weight: 800;
+  color: var(--muted);
 }
 .link-list a:hover {
   color: var(--text);
@@ -530,6 +531,26 @@ a {
     align-items: center;
     justify-content: center;
   }
+
+  .menu-expand {
+    content: "";
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    mask: url(/assets/menu-burger.svg) no-repeat center / contain;
+    -webkit-mask: url(/assets/menu-burger.svg) no-repeat center / contain;
+    background-color: var(--muted);
+  }
+
+  .menu-btn[aria-expanded="true"] .menu-expand {
+    mask: url(/assets/close.svg) no-repeat center / contain;
+    -webkit-mask: url(/assets/close.svg) no-repeat center / contain;
+  }
+
+  .menu-btn:hover {
+    border-color: rgba(10, 102, 194, 0.45);
+  }
+
   .mobile-nav.open {
     display: flex;
     flex-direction: column;
