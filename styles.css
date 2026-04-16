@@ -151,6 +151,50 @@ a {
   gap: 10px;
 }
 
+/* Language selector */
+.lang-selector {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 14px;
+  background: var(--surface-1);
+  border: 1px solid var(--border-1);
+  padding: 4px;
+  gap: 2px;
+}
+
+.lang-btn {
+  height: 36px;
+  padding: 0 8px;
+  border-radius: 10px;
+  background: transparent;
+  border: 1px solid transparent;
+  cursor: pointer;
+  color: var(--muted);
+  font-size: 18px;
+  line-height: 1;
+  font-family: inherit;
+  transition:
+    color 0.15s ease,
+    background 0.15s ease,
+    border-color 0.15s ease;
+}
+
+.lang-btn img {
+  display: block;
+  border-radius: 3px;
+  pointer-events: none;
+}
+
+.lang-btn.active {
+  background: var(--surface-2);
+  border-color: var(--border-1);
+  color: var(--text);
+}
+
+.lang-btn:hover:not(.active) {
+  color: var(--text);
+}
+
 .theme-btn {
   height: 44px;
   padding: 0 12px;
@@ -399,6 +443,9 @@ a {
 .card h3 {
   margin: 0 0 10px;
   letter-spacing: -0.02em;
+}
+.card.about-card {
+  line-height: 1.4;
 }
 .muted {
   color: var(--muted);

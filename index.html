@@ -45,18 +45,28 @@
       </a>
 
       <nav class="nav" aria-label="Primary">
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#experience">Experience</a>
-        <a href="#education">Education</a>
-        <a href="#contact" class="btn primary">Contact</a>
+        <a href="#about" data-i18n="nav.about">About</a>
+        <a href="#skills" data-i18n="nav.skills">Skills</a>
+        <a href="#experience" data-i18n="nav.experience">Experience</a>
+        <a href="#education" data-i18n="nav.education">Education</a>
+        <a href="#contact" class="btn primary" data-i18n="nav.contact">Contact</a>
       </nav>
 
       <div class="topbar-actions">
+        <div class="lang-selector" role="group" aria-label="Language">
+          <button class="lang-btn" id="langBtnEn" aria-pressed="true" aria-label="English" title="English">
+            <img src="https://flagcdn.com/gb.svg" alt="GB" width="22" height="16" />
+          </button>
+          <button class="lang-btn" id="langBtnHu" aria-pressed="false" aria-label="Magyar" title="Magyar">
+            <img src="https://flagcdn.com/hu.svg" alt="HU" width="22" height="16" />
+          </button>
+        </div>
+
         <button
           class="theme-btn"
           id="themeBtn"
           aria-label="Toggle theme"
+          data-i18n-title="theme.toggle.title"
           title="Toggle theme"
         >
           <span class="theme-icon" id="themeIcon">🌙</span>
@@ -76,11 +86,11 @@
 
     <!-- Mobile menu -->
     <div class="mobile-nav" id="mobileNav" aria-hidden="true">
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#experience">Experience</a>
-      <a href="#education">Education</a>
-      <a href="#contact">Contact</a>
+      <a href="#about" data-i18n="nav.about">About</a>
+      <a href="#skills" data-i18n="nav.skills">Skills</a>
+      <a href="#experience" data-i18n="nav.experience">Experience</a>
+      <a href="#education" data-i18n="nav.education">Education</a>
+      <a href="#contact" data-i18n="nav.contact">Contact</a>
     </div>
 
     <main id="top">
@@ -88,12 +98,12 @@
       <section class="hero">
         <div class="container hero-grid">
           <div class="hero-copy">
-            <p class="badge">Frontend Developer · AI-Augmented</p>
-            <h1>
+            <p class="badge" data-i18n="hero.badge">Frontend Developer · AI-Augmented</p>
+            <h1 data-i18n-html="hero.h1">
               Building smarter enterprise web apps with
               <span class="accent">Angular</span>.
             </h1>
-            <p class="subtitle">
+            <p class="subtitle" data-i18n="hero.subtitle">
               Based in Budapest, Hungary — I design and develop high-quality UI
               for complex enterprise applications, supercharged with AI-assisted
               development workflows. Strong focus on clean code, UI/UX, and team
@@ -101,8 +111,8 @@
             </p>
 
             <div class="hero-actions">
-              <a class="btn primary" href="#contact">Get in touch</a>
-              <a class="btn ghost" href="#experience">View experience</a>
+              <a class="btn primary" href="#contact" data-i18n="hero.cta.primary">Get in touch</a>
+              <a class="btn ghost" href="#experience" data-i18n="hero.cta.secondary">View experience</a>
             </div>
 
             <div class="hero-links">
@@ -152,8 +162,8 @@
 
             <div class="hero-stats">
               <div class="stat">
-                <div class="stat-num">3+ yrs</div>
-                <div class="stat-label">Frontend (Angular)</div>
+                <div class="stat-num" data-i18n="stat.years.num">3+ yrs</div>
+                <div class="stat-label" data-i18n="stat.years.label">Frontend (Angular)</div>
               </div>
               <div class="stat">
                 <div class="stat-num">UI</div>
@@ -164,8 +174,8 @@
                 <div class="stat-label">GitLab · Azure DevOps</div>
               </div>
               <div class="stat">
-                <div class="stat-num">Testing</div>
-                <div class="stat-label">Storybook · Selenium</div>
+                <div class="stat-num" data-i18n="stat.testing.num">Testing</div>
+                <div class="stat-label" data-i18n="stat.testing.label">Storybook · Selenium</div>
               </div>
               <div class="stat">
                 <div class="stat-num">AI</div>
@@ -180,16 +190,16 @@
       <section id="about" class="section">
         <div class="container">
           <div class="section-head">
-            <h2>About</h2>
-            <p>
+            <h2 data-i18n="about.title">About</h2>
+            <p data-i18n="about.subtitle">
               Frontend Developer building Angular enterprise apps with
               AI-augmented workflows.
             </p>
           </div>
 
           <div class="card about-card">
-            <p>
-              I’m a Frontend Developer working with Angular, RxJS, NgRx and
+            <p data-i18n="about.body">
+              I'm a Frontend Developer working with Angular, RxJS, NgRx and
               modern UI frameworks — now supercharged with AI-assisted
               development workflows. I integrate AI coding tools (Claude Code,
               ChatGPT) into my daily work to accelerate feature development,
@@ -201,19 +211,19 @@
             </p>
             <div class="about-meta">
               <div class="meta-item">
-                <span class="meta-k">Location</span>
-                <span class="meta-v">Budapest, Hungary</span>
+                <span class="meta-k" data-i18n="about.meta.location.key">Location</span>
+                <span class="meta-v" data-i18n="about.meta.location.val">Budapest, Hungary</span>
               </div>
               <div class="meta-item">
-                <span class="meta-k">Languages</span>
-                <span class="meta-v"
+                <span class="meta-k" data-i18n="about.meta.languages.key">Languages</span>
+                <span class="meta-v" data-i18n="about.meta.languages.val"
                   >Hungarian (Native), English (Professional), German
                   (Limited)</span
                 >
               </div>
               <div class="meta-item">
-                <span class="meta-k">Top skills</span>
-                <span class="meta-v"
+                <span class="meta-k" data-i18n="about.meta.skills.key">Top skills</span>
+                <span class="meta-v" data-i18n="about.meta.skills.val"
                   >Angular · RxJS · UI libraries · AI-Assisted Development · CI/CD</span
                 >
               </div>
@@ -226,13 +236,13 @@
       <section id="skills" class="section alt">
         <div class="container">
           <div class="section-head">
-            <h2>Skills</h2>
-            <p>Frameworks, tools and technologies I work with.</p>
+            <h2 data-i18n="skills.title">Skills</h2>
+            <p data-i18n="skills.subtitle">Frameworks, tools and technologies I work with.</p>
           </div>
 
           <div class="grid skills-grid">
             <div class="card">
-              <h3>Frameworks & UI</h3>
+              <h3 data-i18n="skills.frameworks">Frameworks & UI</h3>
               <div class="tags">
                 <span class="tag">Angular</span>
                 <span class="tag">NG-ZORRO</span>
@@ -246,7 +256,7 @@
             </div>
 
             <div class="card">
-              <h3>Languages</h3>
+              <h3 data-i18n="skills.languages">Languages</h3>
               <div class="tags">
                 <span class="tag">TypeScript</span>
                 <span class="tag">JavaScript</span>
@@ -259,7 +269,7 @@
             </div>
 
             <div class="card">
-              <h3>Backend & DB</h3>
+              <h3 data-i18n="skills.backend">Backend & DB</h3>
               <div class="tags">
                 <span class="tag">Node.js</span>
                 <span class="tag">Express</span>
@@ -270,7 +280,7 @@
             </div>
 
             <div class="card">
-              <h3>DevOps & Testing</h3>
+              <h3 data-i18n="skills.devops">DevOps & Testing</h3>
               <div class="tags">
                 <span class="tag">GitLab</span>
                 <span class="tag">CI/CD</span>
@@ -280,7 +290,7 @@
             </div>
 
             <div class="card">
-              <h3>AI & Tooling</h3>
+              <h3 data-i18n="skills.ai">AI & Tooling</h3>
               <div class="tags">
                 <span class="tag">Claude Code</span>
                 <span class="tag">ChatGPT</span>
@@ -297,37 +307,37 @@
       <section id="experience" class="section">
         <div class="container">
           <div class="section-head">
-            <h2>Experience</h2>
-            <p>Selected roles and responsibilities.</p>
+            <h2 data-i18n="exp.title">Experience</h2>
+            <p data-i18n="exp.subtitle">Selected roles and responsibilities.</p>
           </div>
 
           <div class="timeline">
             <article class="card timeline-item">
               <div class="timeline-top">
-                <h3>Frontend Web Developer</h3>
-                <p class="muted">
+                <h3 data-i18n="exp.j1.title">Frontend Web Developer</h3>
+                <p class="muted" data-i18n="exp.j1.company">
                   Fornax ICT Kft. · Mar 2023 – Present · Budapest, Hungary
                 </p>
               </div>
               <ul class="list">
-                <li>
+                <li data-i18n="exp.j1.li1">
                   Developing frontend/GUI features for complex enterprise
                   applications.
                 </li>
-                <li>
+                <li data-i18n="exp.j1.li2">
                   Angular UI development, translating UI/UX wireframes into
                   code.
                 </li>
-                <li>Working with Material, PrimeNG, NG-ZORRO.</li>
-                <li>UI test automation (Selenium).</li>
-                <li>DevOps: Azure DevOps integration with GitLab.</li>
-                <li>Custom Keycloak themes and designs.</li>
-                <li>
+                <li data-i18n="exp.j1.li3">Working with Material, PrimeNG, NG-ZORRO.</li>
+                <li data-i18n="exp.j1.li4">UI test automation (Selenium).</li>
+                <li data-i18n="exp.j1.li5">DevOps: Azure DevOps integration with GitLab.</li>
+                <li data-i18n="exp.j1.li6">Custom Keycloak themes and designs.</li>
+                <li data-i18n="exp.j1.li7">
                   Leveraging AI-assisted development tools (Claude Code,
                   ChatGPT) for feature planning, code generation, debugging, and
                   code review — improving development speed and code quality.
                 </li>
-                <li>
+                <li data-i18n="exp.j1.li8">
                   Adopting AI-powered workflows to enhance productivity and
                   advocate for modern development practices.
                 </li>
@@ -336,23 +346,23 @@
 
             <article class="card timeline-item">
               <div class="timeline-top">
-                <h3>Frontend Web Developer / IT Business Analyst</h3>
-                <p class="muted">
+                <h3 data-i18n="exp.j2.title">Frontend Web Developer / IT Business Analyst</h3>
+                <p class="muted" data-i18n="exp.j2.company">
                   Digitális Kormányzati Fejlesztés és Projektmenedzsment Kft. ·
                   Jan 2022 – Mar 2023 · Budapest, Hungary
                 </p>
               </div>
               <ul class="list">
-                <li>
+                <li data-i18n="exp.j2.li1">
                   Planning and implementing new frontend/GUI features in agile
                   teams.
                 </li>
-                <li>Testing, bug fixing and documentation.</li>
-                <li>
+                <li data-i18n="exp.j2.li2">Testing, bug fixing and documentation.</li>
+                <li data-i18n="exp.j2.li3">
                   Requirement specifications and templates for digital
                   government projects.
                 </li>
-                <li>
+                <li data-i18n="exp.j2.li4">
                   Participation in service design and lean inception workshops.
                 </li>
               </ul>
@@ -360,18 +370,18 @@
 
             <article class="card timeline-item">
               <div class="timeline-top">
-                <h3>Project Coordinator</h3>
-                <p class="muted">
+                <h3 data-i18n="exp.j3.title">Project Coordinator</h3>
+                <p class="muted" data-i18n="exp.j3.company">
                   Educational District Centre of South Buda · Apr 2020 – Jan
                   2022 · Budapest, Hungary
                 </p>
               </div>
               <ul class="list">
-                <li>
+                <li data-i18n="exp.j3.li1">
                   Project management across procurement and operations
                   processes.
                 </li>
-                <li>
+                <li data-i18n="exp.j3.li2">
                   Partner coordination, reporting, budget monitoring and
                   analysis.
                 </li>
@@ -380,18 +390,18 @@
 
             <article class="card timeline-item">
               <div class="timeline-top">
-                <h3>Project Manager / Project Coordinator</h3>
-                <p class="muted">
+                <h3 data-i18n="exp.j4.title">Project Manager / Project Coordinator</h3>
+                <p class="muted" data-i18n="exp.j4.company">
                   Camp Leaders Hungary Kft. · Sep 2015 – Mar 2020 · Budapest,
                   Hungary
                 </p>
               </div>
               <ul class="list">
-                <li>
+                <li data-i18n="exp.j4.li1">
                   Business development, stakeholder management, operational
                   excellence.
                 </li>
-                <li>
+                <li data-i18n="exp.j4.li2">
                   Team coordination, planning, reporting and process
                   improvements.
                 </li>
@@ -400,18 +410,18 @@
 
             <article class="card timeline-item">
               <div class="timeline-top">
-                <h3>Junior Real Estate Business Analyst & Consultant</h3>
-                <p class="muted">
+                <h3 data-i18n="exp.j5.title">Junior Real Estate Business Analyst & Consultant</h3>
+                <p class="muted" data-i18n="exp.j5.company">
                   Portus Buda Group Zrt. · May 2012 – Jun 2015 · Budapest,
                   Hungary
                 </p>
               </div>
               <ul class="list">
-                <li>
+                <li data-i18n="exp.j5.li1">
                   Financial planning, forecasting, feasibility studies, market
                   analysis.
                 </li>
-                <li>CRM/database management and advisory project support.</li>
+                <li data-i18n="exp.j5.li2">CRM/database management and advisory project support.</li>
               </ul>
             </article>
           </div>
@@ -422,23 +432,23 @@
       <section id="education" class="section alt">
         <div class="container">
           <div class="section-head">
-            <h2>Education & Certifications</h2>
-            <p>Training and professional learning.</p>
+            <h2 data-i18n="edu.title">Education & Certifications</h2>
+            <p data-i18n="edu.subtitle">Training and professional learning.</p>
           </div>
 
           <div class="grid edu-grid">
             <div class="card">
-              <h3>Education</h3>
+              <h3 data-i18n="edu.edu.title">Education</h3>
               <ul class="list compact">
-                <li>
+                <li data-i18n-html="edu.edu.li1">
                   <strong>PROGmasters</strong> — Junior Frontend Developer (Sep
                   2021 – Mar 2022)
                 </li>
-                <li>
+                <li data-i18n-html="edu.edu.li2">
                   <strong>Corvinus University of Budapest</strong> — MSc in
                   BusinessDevelopment (Feb 2011 – Feb 2014)
                 </li>
-                <li>
+                <li data-i18n-html="edu.edu.li3">
                   <strong>Corvinus University of Budapest</strong> — BSc in
                   BusinessAdministration and Management (Sep 2007 – Dec 2010)
                 </li>
@@ -446,16 +456,16 @@
             </div>
 
             <div class="card">
-              <h3>Certifications</h3>
+              <h3 data-i18n="edu.cert.title">Certifications</h3>
               <ul class="list compact">
-                <li>Junior Frontend Developer (PROGmasters)</li>
-                <li>e-Administration Expert (Königsberg Consulting)</li>
-                <li>
+                <li data-i18n="edu.cert.li1">Junior Frontend Developer (PROGmasters)</li>
+                <li data-i18n="edu.cert.li2">e-Administration Expert (Königsberg Consulting)</li>
+                <li data-i18n="edu.cert.li3">
                   Angular (Full App) with Angular Material, Angularfire & NgRx
                   (Udemy)
                 </li>
-                <li>The Complete SQL Bootcamp 2022 (Udemy)</li>
-                <li>The Web Developer Bootcamp 2022 (Udemy)</li>
+                <li data-i18n="edu.cert.li4">The Complete SQL Bootcamp 2022 (Udemy)</li>
+                <li data-i18n="edu.cert.li5">The Web Developer Bootcamp 2022 (Udemy)</li>
               </ul>
             </div>
           </div>
@@ -466,19 +476,19 @@
       <section id="contact" class="section">
         <div class="container">
           <div class="section-head">
-            <h2>Contact</h2>
-            <p>Want to work together? Let’s connect.</p>
+            <h2 data-i18n="contact.title">Contact</h2>
+            <p data-i18n="contact.subtitle">Want to work together? Let's connect.</p>
           </div>
 
           <div class="grid contact-grid">
             <div class="card">
-              <h3>Message</h3>
-              <p class="muted">
+              <h3 data-i18n="contact.msg.title">Message</h3>
+              <p class="muted" data-i18n="contact.msg.body">
                 Best way to reach me is email. You can also connect on LinkedIn.
               </p>
 
               <div class="contact-actions">
-                <a class="btn primary" href="mailto:hartmann.attila88@gmail.com"
+                <a class="btn primary" href="mailto:hartmann.attila88@gmail.com" data-i18n="contact.msg.email"
                   >Email me</a
                 >
                 <a
@@ -493,13 +503,14 @@
             </div>
 
             <div class="card">
-              <h3>Links</h3>
+              <h3 data-i18n="contact.links.title">Links</h3>
               <ul class="link-list">
                 <li>
                   <a
                     href="https://github.com/Attila-Hartmann/Pet-Projects"
                     target="_blank"
                     rel="noreferrer"
+                    data-i18n="contact.links.github"
                     >GitHub — Pet Projects</a
                   >
                 </li>
@@ -508,6 +519,7 @@
                     href="https://attila-hartmann.web.app/"
                     target="_blank"
                     rel="noreferrer"
+                    data-i18n="contact.links.portfolio"
                     >Portfolio</a
                   >
                 </li>
