@@ -1,529 +1,388 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Attila Hartmann | Frontend Developer · Angular & AI-Augmented Development</title>
+    <title>Attila Hartmann | AI Engineer · Agentic systems, fine-tuning, Angular</title>
     <meta
       name="description"
-      content="Attila Hartmann — Frontend Developer (Angular) building modern enterprise web apps with AI-augmented workflows. Angular, RxJS, NgRx, PrimeNG, Claude Code, ChatGPT."
+      content="Attila Hartmann, AI engineer in Budapest. Agentic systems and fine-tuned models for regulated enterprise workflows, shipped with evals, guardrails and cloud deployment. Two live open-source projects: Clearline and Claimdesk."
     />
-
-    <!-- Open Graph -->
-    <meta
-      property="og:title"
-      content="Attila Hartmann | Frontend Developer · Angular & AI-Augmented Development"
-    />
+    <meta property="og:title" content="Attila Hartmann | AI Engineer" />
     <meta
       property="og:description"
-      content="Frontend Developer (Angular) based in Budapest, Hungary. Building smarter enterprise apps with AI-assisted development workflows, UI libraries, CI/CD and automation."
+      content="Agentic systems and fine-tuned models for regulated enterprise workflows. A fine-tuned 4B model that beats Claude Haiku at 46× lower cost; an agent that resolves bank complaints with citations and human approval."
     />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="assets/og-image.png" />
+    <meta property="og:url" content="https://attila-hartmann.github.io/attila-website/" />
+    <meta property="og:image" content="https://attila-hartmann.github.io/attila-website/assets/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
 
-    <!-- Favicon -->
-    <link rel="icon" href="assets/og-image.png" />
-
-    <link rel="stylesheet" href="styles.css" />
-
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Geist:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="styles.css" />
+    <script>
+      // Theme before first paint, so there is no flash of the wrong theme
+      (function () {
+        try {
+          var t = localStorage.getItem("theme");
+          if (t !== "light" && t !== "dark") t = matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+          document.documentElement.setAttribute("data-theme", t);
+        } catch (e) {}
+      })();
+    </script>
   </head>
 
   <body>
-    <!-- Top bar -->
+    <a class="skip" href="#main" data-i18n="a11y.skip">Skip to content</a>
+
     <header class="topbar">
-      <a class="brand" href="#top" aria-label="Home">
-        <span class="brand-dot"></span>
-        <span>Attila Hartmann</span>
+      <a class="brand" href="#top" aria-label="Attila Hartmann, home">
+        <span class="brand-prompt">~/</span><span>attila-hartmann</span><span class="caret" aria-hidden="true"></span>
       </a>
 
       <nav class="nav" aria-label="Primary">
-        <a href="#about" data-i18n="nav.about">About</a>
+        <a href="#projects" data-i18n="nav.projects">Projects</a>
+        <a href="#work" data-i18n="nav.work">Work</a>
         <a href="#skills" data-i18n="nav.skills">Skills</a>
         <a href="#experience" data-i18n="nav.experience">Experience</a>
-        <a href="#education" data-i18n="nav.education">Education</a>
-        <a href="#contact" class="btn primary" data-i18n="nav.contact">Contact</a>
+        <a href="#contact" class="btn primary sm" data-i18n="nav.contact">Contact</a>
       </nav>
 
       <div class="topbar-actions">
-        <div class="lang-selector" role="group" aria-label="Language">
-          <button class="lang-btn" id="langBtnEn" aria-pressed="true" aria-label="English" title="English">
-            <img src="https://flagcdn.com/gb.svg" alt="GB" width="22" height="16" />
-          </button>
-          <button class="lang-btn" id="langBtnHu" aria-pressed="false" aria-label="Magyar" title="Magyar">
-            <img src="https://flagcdn.com/hu.svg" alt="HU" width="22" height="16" />
-          </button>
-        </div>
-
-        <button
-          class="theme-btn"
-          id="themeBtn"
-          aria-label="Toggle theme"
-          data-i18n-title="theme.toggle.title"
-          title="Toggle theme"
-        >
-          <span class="theme-icon" id="themeIcon">🌙</span>
+        <fieldset class="lang-selector">
+          <legend class="sr-only">Language</legend>
+          <button class="lang-btn" id="langBtnEn" aria-pressed="true" title="English">EN</button>
+          <button class="lang-btn" id="langBtnHu" aria-pressed="false" title="Magyar">HU</button>
+        </fieldset>
+        <button class="theme-btn" id="themeBtn" aria-label="Toggle theme" data-i18n-title="theme.toggle.title" title="Toggle theme">
+          <span class="theme-icon" id="themeIcon" aria-hidden="true">☾</span>
           <span class="theme-text" id="themeText">Dark</span>
         </button>
-
-        <button
-          class="menu-btn"
-          id="menuBtn"
-          aria-label="Open menu"
-          aria-expanded="false"
-        >
-          <i class="menu-expand"></i>
+        <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+          <span></span><span></span>
         </button>
       </div>
     </header>
 
-    <!-- Mobile menu -->
     <div class="mobile-nav" id="mobileNav" aria-hidden="true">
-      <a href="#about" data-i18n="nav.about">About</a>
+      <a href="#projects" data-i18n="nav.projects">Projects</a>
+      <a href="#work" data-i18n="nav.work">Work</a>
       <a href="#skills" data-i18n="nav.skills">Skills</a>
       <a href="#experience" data-i18n="nav.experience">Experience</a>
-      <a href="#education" data-i18n="nav.education">Education</a>
       <a href="#contact" data-i18n="nav.contact">Contact</a>
     </div>
 
-    <main id="top">
-      <!-- Hero -->
-      <section class="hero">
+    <main id="main">
+      <!-- ── Hero ─────────────────────────────────────────────────────────────── -->
+      <section class="hero" id="top">
+        <div class="hero-bg" aria-hidden="true"></div>
         <div class="container hero-grid">
           <div class="hero-copy">
-            <p class="badge" data-i18n="hero.badge">Frontend Developer · AI-Augmented</p>
-            <h1 data-i18n-html="hero.h1">
-              Building smarter enterprise web apps with
-              <span class="accent">Angular</span>.
+            <p class="prompt"><span class="p-user">attila@budapest</span> <span class="p-path">~</span> <span class="p-sign">$</span> whoami</p>
+            <h1>
+              <span class="name">Attila Hartmann</span>
+              <span class="role" data-i18n="hero.role">AI Engineer · Agentic systems &amp; Angular</span>
             </h1>
-            <p class="subtitle" data-i18n="hero.subtitle">
-              Based in Budapest, Hungary — I design and develop high-quality UI
-              for complex enterprise applications, supercharged with AI-assisted
-              development workflows. Strong focus on clean code, UI/UX, and team
-              delivery.
+            <p class="lede" data-i18n-html="hero.lede">
+              I build AI systems that hold up in <strong>regulated enterprise workflows</strong>: agents with human approval,
+              fine-tuned models that beat frontier APIs on cost, and the evals, guardrails and cloud plumbing that make them
+              safe to ship.
             </p>
-
             <div class="hero-actions">
-              <a class="btn primary" href="#contact" data-i18n="hero.cta.primary">Get in touch</a>
-              <a class="btn ghost" href="#experience" data-i18n="hero.cta.secondary">View experience</a>
+              <a class="btn primary" href="#projects" data-i18n="hero.cta.projects">See the projects</a>
+              <a class="btn ghost" id="cvLink" href="assets/cv/Attila-Hartmann-CV-EN.pdf" download data-i18n="hero.cta.cv">Download CV</a>
+              <a class="btn ghost" href="#contact" data-i18n="hero.cta.contact">Get in touch</a>
             </div>
-
-            <div class="hero-links">
-              <a
-                href="mailto:hartmann.attila88@gmail.com"
-                class="chip"
-                aria-label="Email"
-              >
-                Email
-              </a>
-              <a
-                href="https://www.linkedin.com/in/attila-hartmann-b7b41a24b/"
-                target="_blank"
-                rel="noreferrer"
-                class="chip"
-              >
-                LinkedIn
-              </a>
-              <a
-                href="https://github.com/Attila-Hartmann/Pet-Projects"
-                target="_blank"
-                rel="noreferrer"
-                class="chip"
-              >
-                GitHub
-              </a>
-              <a
-                href="https://attila-hartmann.web.app/"
-                target="_blank"
-                rel="noreferrer"
-                class="chip"
-              >
-                Portfolio
-              </a>
-            </div>
+            <p class="hero-meta" data-i18n="hero.meta">Budapest · open to AI engineering roles, hybrid or remote (EU)</p>
           </div>
 
-          <div class="hero-card">
+          <aside class="hero-card" aria-label="Highlights">
             <div class="avatar-wrap">
-              <img
-                class="avatar"
-                src="assets/profile.jpg"
-                alt="Attila Hartmann portrait"
-              />
-              <div class="ring"></div>
+              <img class="avatar" src="assets/profile.jpg" alt="Portrait of Attila Hartmann" width="168" height="168" />
+              <span class="status-dot" aria-hidden="true"></span>
             </div>
-
-            <div class="hero-stats">
-              <div class="stat">
-                <div class="stat-num" data-i18n="stat.years.num">3+ yrs</div>
-                <div class="stat-label" data-i18n="stat.years.label">Frontend (Angular)</div>
-              </div>
-              <div class="stat">
-                <div class="stat-num">UI</div>
-                <div class="stat-label">PrimeNG · NG-ZORRO · Material</div>
-              </div>
-              <div class="stat">
-                <div class="stat-num">CI/CD</div>
-                <div class="stat-label">GitLab · Azure DevOps</div>
-              </div>
-              <div class="stat">
-                <div class="stat-num" data-i18n="stat.testing.num">Testing</div>
-                <div class="stat-label" data-i18n="stat.testing.label">Storybook · Selenium</div>
-              </div>
-              <div class="stat">
-                <div class="stat-num">AI</div>
-                <div class="stat-label">Claude Code · ChatGPT</div>
-              </div>
-            </div>
-          </div>
+            <ul class="proof">
+              <li>
+                <span class="proof-num">99.4%</span>
+                <span class="proof-label" data-i18n="proof.1">fields correct: my fine-tuned 4B model vs 98.4% for Claude Haiku</span>
+              </li>
+              <li>
+                <span class="proof-num">46×</span>
+                <span class="proof-label" data-i18n="proof.2">lower cost per document, on a single GPU</span>
+              </li>
+              <li>
+                <span class="proof-num">97%</span>
+                <span class="proof-label" data-i18n="proof.3">right decisions by my complaint agent, gated in CI</span>
+              </li>
+              <li>
+                <span class="proof-num">127</span>
+                <span class="proof-label" data-i18n="proof.4">lessons captured by my team's agentic toolkit in 3 weeks</span>
+              </li>
+            </ul>
+          </aside>
         </div>
       </section>
 
-      <!-- About -->
-      <section id="about" class="section">
+      <!-- ── Projects ─────────────────────────────────────────────────────────── -->
+      <section class="section" id="projects">
         <div class="container">
-          <div class="section-head">
-            <h2 data-i18n="about.title">About</h2>
-            <p data-i18n="about.subtitle">
-              Frontend Developer building Angular enterprise apps with
-              AI-augmented workflows.
+          <header class="section-head">
+            <p class="kicker">$ ls ~/projects</p>
+            <h2 data-i18n="projects.title">Two production-grade AI systems, live and open source</h2>
+            <p data-i18n="projects.subtitle">
+              Built end to end: data, models, evals, guardrails, UI and cloud. Each one comes with a demo, the code and the numbers.
             </p>
-          </div>
+          </header>
 
-          <div class="card about-card">
-            <p data-i18n="about.body">
-              I'm a Frontend Developer working with Angular, RxJS, NgRx and
-              modern UI frameworks — now supercharged with AI-assisted
-              development workflows. I integrate AI coding tools (Claude Code,
-              ChatGPT) into my daily work to accelerate feature development,
-              improve code quality, and streamline debugging. I collaborate in
-              agile teams to deliver complex enterprise solutions (workflow /
-              record management / process automation / GIS), translate UI/UX
-              designs into production-ready code, and contribute to testing,
-              automation and documentation.
-            </p>
-            <div class="about-meta">
-              <div class="meta-item">
-                <span class="meta-k" data-i18n="about.meta.location.key">Location</span>
-                <span class="meta-v" data-i18n="about.meta.location.val">Budapest, Hungary</span>
-              </div>
-              <div class="meta-item">
-                <span class="meta-k" data-i18n="about.meta.languages.key">Languages</span>
-                <span class="meta-v" data-i18n="about.meta.languages.val"
-                  >Hungarian (Native), English (Professional), German
-                  (Limited)</span
-                >
-              </div>
-              <div class="meta-item">
-                <span class="meta-k" data-i18n="about.meta.skills.key">Top skills</span>
-                <span class="meta-v" data-i18n="about.meta.skills.val"
-                  >Angular · RxJS · UI libraries · AI-Assisted Development · CI/CD</span
-                >
-              </div>
+          <article class="project">
+            <div class="project-media">
+              <video controls preload="none" playsinline poster="assets/img/claimdesk-poster.jpg" aria-label="Claimdesk demo video, 1 minute 22 seconds, with captions">
+                <source src="assets/video/claimdesk-demo.mp4" type="video/mp4" />
+              </video>
+              <p class="media-note" data-i18n="media.claimdesk">1:22 demo with captions, recorded on the live site</p>
             </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Skills -->
-      <section id="skills" class="section alt">
-        <div class="container">
-          <div class="section-head">
-            <h2 data-i18n="skills.title">Skills</h2>
-            <p data-i18n="skills.subtitle">Frameworks, tools and technologies I work with.</p>
-          </div>
-
-          <div class="grid skills-grid">
-            <div class="card">
-              <h3 data-i18n="skills.frameworks">Frameworks & UI</h3>
-              <div class="tags">
-                <span class="tag">Angular</span>
-                <span class="tag">NG-ZORRO</span>
-                <span class="tag">PrimeNG</span>
-                <span class="tag">Angular Material</span>
-                <span class="tag">Storybook</span>
-                <span class="tag">Figma</span>
-                <span class="tag">RxJS</span>
-                <span class="tag">NgRx</span>
-              </div>
-            </div>
-
-            <div class="card">
-              <h3 data-i18n="skills.languages">Languages</h3>
-              <div class="tags">
-                <span class="tag">TypeScript</span>
-                <span class="tag">JavaScript</span>
-                <span class="tag">Java</span>
-                <span class="tag">HTML</span>
-                <span class="tag">CSS / SCSS</span>
-                <span class="tag">SQL</span>
-                <span class="tag">Python</span>
-              </div>
-            </div>
-
-            <div class="card">
-              <h3 data-i18n="skills.backend">Backend & DB</h3>
-              <div class="tags">
-                <span class="tag">Node.js</span>
-                <span class="tag">Express</span>
-                <span class="tag">Firebase</span>
-                <span class="tag">MongoDB</span>
-                <span class="tag">PostgreSQL</span>
-              </div>
-            </div>
-
-            <div class="card">
-              <h3 data-i18n="skills.devops">DevOps & Testing</h3>
-              <div class="tags">
-                <span class="tag">GitLab</span>
-                <span class="tag">CI/CD</span>
-                <span class="tag">Azure DevOps</span>
-                <span class="tag">Selenium</span>
-              </div>
-            </div>
-
-            <div class="card">
-              <h3 data-i18n="skills.ai">AI & Tooling</h3>
-              <div class="tags">
-                <span class="tag">Claude Code</span>
-                <span class="tag">ChatGPT</span>
-                <span class="tag">AI-Assisted Development</span>
-                <span class="tag">Prompt Engineering</span>
-                <span class="tag">AI-Augmented Workflows</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Experience -->
-      <section id="experience" class="section">
-        <div class="container">
-          <div class="section-head">
-            <h2 data-i18n="exp.title">Experience</h2>
-            <p data-i18n="exp.subtitle">Selected roles and responsibilities.</p>
-          </div>
-
-          <div class="timeline">
-            <article class="card timeline-item">
-              <div class="timeline-top">
-                <h3 data-i18n="exp.j1.title">Frontend Web Developer</h3>
-                <p class="muted" data-i18n="exp.j1.company">
-                  Fornax ICT Kft. · Mar 2023 – Present · Budapest, Hungary
-                </p>
-              </div>
-              <ul class="list">
-                <li data-i18n="exp.j1.li1">
-                  Developing frontend/GUI features for complex enterprise
-                  applications.
-                </li>
-                <li data-i18n="exp.j1.li2">
-                  Angular UI development, translating UI/UX wireframes into
-                  code.
-                </li>
-                <li data-i18n="exp.j1.li3">Working with Material, PrimeNG, NG-ZORRO.</li>
-                <li data-i18n="exp.j1.li4">UI test automation (Selenium).</li>
-                <li data-i18n="exp.j1.li5">DevOps: Azure DevOps integration with GitLab.</li>
-                <li data-i18n="exp.j1.li6">Custom Keycloak themes and designs.</li>
-                <li data-i18n="exp.j1.li7">
-                  Leveraging AI-assisted development tools (Claude Code,
-                  ChatGPT) for feature planning, code generation, debugging, and
-                  code review — improving development speed and code quality.
-                </li>
-                <li data-i18n="exp.j1.li8">
-                  Adopting AI-powered workflows to enhance productivity and
-                  advocate for modern development practices.
-                </li>
-              </ul>
-            </article>
-
-            <article class="card timeline-item">
-              <div class="timeline-top">
-                <h3 data-i18n="exp.j2.title">Frontend Web Developer / IT Business Analyst</h3>
-                <p class="muted" data-i18n="exp.j2.company">
-                  Digitális Kormányzati Fejlesztés és Projektmenedzsment Kft. ·
-                  Jan 2022 – Mar 2023 · Budapest, Hungary
-                </p>
-              </div>
-              <ul class="list">
-                <li data-i18n="exp.j2.li1">
-                  Planning and implementing new frontend/GUI features in agile
-                  teams.
-                </li>
-                <li data-i18n="exp.j2.li2">Testing, bug fixing and documentation.</li>
-                <li data-i18n="exp.j2.li3">
-                  Requirement specifications and templates for digital
-                  government projects.
-                </li>
-                <li data-i18n="exp.j2.li4">
-                  Participation in service design and lean inception workshops.
-                </li>
-              </ul>
-            </article>
-
-            <article class="card timeline-item">
-              <div class="timeline-top">
-                <h3 data-i18n="exp.j3.title">Project Coordinator</h3>
-                <p class="muted" data-i18n="exp.j3.company">
-                  Educational District Centre of South Buda · Apr 2020 – Jan
-                  2022 · Budapest, Hungary
-                </p>
-              </div>
-              <ul class="list">
-                <li data-i18n="exp.j3.li1">
-                  Project management across procurement and operations
-                  processes.
-                </li>
-                <li data-i18n="exp.j3.li2">
-                  Partner coordination, reporting, budget monitoring and
-                  analysis.
-                </li>
-              </ul>
-            </article>
-
-            <article class="card timeline-item">
-              <div class="timeline-top">
-                <h3 data-i18n="exp.j4.title">Project Manager / Project Coordinator</h3>
-                <p class="muted" data-i18n="exp.j4.company">
-                  Camp Leaders Hungary Kft. · Sep 2015 – Mar 2020 · Budapest,
-                  Hungary
-                </p>
-              </div>
-              <ul class="list">
-                <li data-i18n="exp.j4.li1">
-                  Business development, stakeholder management, operational
-                  excellence.
-                </li>
-                <li data-i18n="exp.j4.li2">
-                  Team coordination, planning, reporting and process
-                  improvements.
-                </li>
-              </ul>
-            </article>
-
-            <article class="card timeline-item">
-              <div class="timeline-top">
-                <h3 data-i18n="exp.j5.title">Junior Real Estate Business Analyst & Consultant</h3>
-                <p class="muted" data-i18n="exp.j5.company">
-                  Portus Buda Group Zrt. · May 2012 – Jun 2015 · Budapest,
-                  Hungary
-                </p>
-              </div>
-              <ul class="list">
-                <li data-i18n="exp.j5.li1">
-                  Financial planning, forecasting, feasibility studies, market
-                  analysis.
-                </li>
-                <li data-i18n="exp.j5.li2">CRM/database management and advisory project support.</li>
-              </ul>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- Education -->
-      <section id="education" class="section alt">
-        <div class="container">
-          <div class="section-head">
-            <h2 data-i18n="edu.title">Education & Certifications</h2>
-            <p data-i18n="edu.subtitle">Training and professional learning.</p>
-          </div>
-
-          <div class="grid edu-grid">
-            <div class="card">
-              <h3 data-i18n="edu.edu.title">Education</h3>
-              <ul class="list compact">
-                <li data-i18n-html="edu.edu.li1">
-                  <strong>PROGmasters</strong> — Junior Frontend Developer (Sep
-                  2021 – Mar 2022)
-                </li>
-                <li data-i18n-html="edu.edu.li2">
-                  <strong>Corvinus University of Budapest</strong> — MSc in
-                  BusinessDevelopment (Feb 2011 – Feb 2014)
-                </li>
-                <li data-i18n-html="edu.edu.li3">
-                  <strong>Corvinus University of Budapest</strong> — BSc in
-                  BusinessAdministration and Management (Sep 2007 – Dec 2010)
-                </li>
-              </ul>
-            </div>
-
-            <div class="card">
-              <h3 data-i18n="edu.cert.title">Certifications</h3>
-              <ul class="list compact">
-                <li data-i18n="edu.cert.li1">Junior Frontend Developer (PROGmasters)</li>
-                <li data-i18n="edu.cert.li2">e-Administration Expert (Königsberg Consulting)</li>
-                <li data-i18n="edu.cert.li3">
-                  Angular (Full App) with Angular Material, Angularfire & NgRx
-                  (Udemy)
-                </li>
-                <li data-i18n="edu.cert.li4">The Complete SQL Bootcamp 2022 (Udemy)</li>
-                <li data-i18n="edu.cert.li5">The Web Developer Bootcamp 2022 (Udemy)</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Contact -->
-      <section id="contact" class="section">
-        <div class="container">
-          <div class="section-head">
-            <h2 data-i18n="contact.title">Contact</h2>
-            <p data-i18n="contact.subtitle">Want to work together? Let's connect.</p>
-          </div>
-
-          <div class="grid contact-grid">
-            <div class="card">
-              <h3 data-i18n="contact.msg.title">Message</h3>
-              <p class="muted" data-i18n="contact.msg.body">
-                Best way to reach me is email. You can also connect on LinkedIn.
+            <div class="project-body">
+              <p class="project-tag" data-i18n="claimdesk.tag">Insurance · document AI · MLOps</p>
+              <h3>Claimdesk</h3>
+              <p class="project-pitch" data-i18n="claimdesk.pitch">
+                Claims intake where a fine-tuned 4B open-weight model beats frontier APIs on accuracy, at about 46× lower cost
+                per document, with the MLOps to prove it and roll it back.
               </p>
-
-              <div class="contact-actions">
-                <a class="btn primary" href="mailto:hartmann.attila88@gmail.com" data-i18n="contact.msg.email"
-                  >Email me</a
-                >
-                <a
-                  class="btn ghost"
-                  href="https://www.linkedin.com/in/attila-hartmann-b7b41a24b/"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  LinkedIn
-                </a>
+              <dl class="metrics">
+                <div><dt data-i18n="claimdesk.m1">documents fully correct</dt><dd>95.5% <span>vs 80.7%</span></dd></div>
+                <div><dt data-i18n="claimdesk.m2">cost per 1,000 documents</dt><dd>$0.055 <span>vs $2.51</span></dd></div>
+                <div><dt data-i18n="claimdesk.m3">input tokens per document</dt><dd>377 <span>vs ~1,000</span></dd></div>
+              </dl>
+              <ul class="bullets">
+                <li data-i18n="claimdesk.b1">OCR (Tesseract, Hungarian), a TF-IDF classifier and XGBoost fraud scoring with SHAP reasons</li>
+                <li data-i18n="claimdesk.b2">LoRA fine-tuning of Qwen3-4B, MLflow registry, vLLM serving with versions side by side</li>
+                <li data-i18n="claimdesk.b3">Canary rollout: reviewer feedback and a z-test promoted the new model automatically</li>
+                <li data-i18n="claimdesk.b4">Serverless AWS with Terraform: Lambda, SQS, S3, CloudFront, Bedrock in the EU, OIDC deploys</li>
+              </ul>
+              <p class="stack">Python · TRL/PEFT · vLLM · Modal · MLflow · XGBoost · AWS · Terraform · React</p>
+              <div class="project-links">
+                <a class="btn primary sm" href="https://d26nm0pan1jz2.cloudfront.net" target="_blank" rel="noopener" data-i18n="links.live">Live demo ↗</a>
+                <a class="btn ghost sm" href="https://github.com/Attila-Hartmann/claimdesk" target="_blank" rel="noopener" data-i18n="links.code">Code ↗</a>
               </div>
             </div>
+          </article>
 
-            <div class="card">
-              <h3 data-i18n="contact.links.title">Links</h3>
-              <ul class="link-list">
-                <li>
-                  <a
-                    href="https://github.com/Attila-Hartmann/Pet-Projects"
-                    target="_blank"
-                    rel="noreferrer"
-                    data-i18n="contact.links.github"
-                    >GitHub — Pet Projects</a
-                  >
-                </li>
-                <li>
-                  <a
-                    href="https://attila-hartmann.web.app/"
-                    target="_blank"
-                    rel="noreferrer"
-                    data-i18n="contact.links.portfolio"
-                    >Portfolio</a
-                  >
-                </li>
+          <article class="project reverse">
+            <div class="project-media">
+              <video controls preload="none" playsinline poster="assets/img/clearline-poster.jpg" aria-label="Clearline demo video, 2 minutes 7 seconds, with captions">
+                <source src="assets/video/clearline-demo.mp4" type="video/mp4" />
+              </video>
+              <p class="media-note" data-i18n="media.clearline">2:07 demo with captions, including a live prompt-injection attempt</p>
+            </div>
+            <div class="project-body">
+              <p class="project-tag" data-i18n="clearline.tag">Banking · agents · RAG</p>
+              <h3>Clearline</h3>
+              <p class="project-pitch" data-i18n="clearline.pitch">
+                Agentic complaint resolution for a regulated bank: a customer email goes in, an approved, cited, audit-ready reply
+                comes out, and a person decides before anything is sent.
+              </p>
+              <dl class="metrics">
+                <div><dt data-i18n="clearline.m1">right decisions</dt><dd>97%</dd></div>
+                <div><dt data-i18n="clearline.m2">injection attempts caught</dt><dd>100%</dd></div>
+                <div><dt data-i18n="clearline.m3">model cost per case</dt><dd>~$0.003</dd></div>
+              </dl>
+              <ul class="bullets">
+                <li data-i18n="clearline.b1">LangGraph agent with a human-approval interrupt and a full audit trail</li>
+                <li data-i18n="clearline.b2">Hybrid RAG in Postgres (pgvector + full-text) over policy and Hungarian regulation</li>
+                <li data-i18n="clearline.b3">Read-only core-banking tools on an MCP server; PII redaction and injection guardrails</li>
+                <li data-i18n="clearline.b4">Evals as a CI gate, OpenTelemetry traces, EU data-residency rules</li>
               </ul>
+              <p class="stack">Python · LangGraph · FastAPI · pgvector · MCP · OpenTelemetry · Angular · Docker</p>
+              <div class="project-links">
+                <a class="btn primary sm" href="https://attila-hartmann.github.io/clearline/" target="_blank" rel="noopener" data-i18n="links.live">Live demo ↗</a>
+                <a class="btn ghost sm" href="https://github.com/Attila-Hartmann/clearline" target="_blank" rel="noopener" data-i18n="links.code">Code ↗</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- ── Work at Fornax ───────────────────────────────────────────────────── -->
+      <section class="section alt" id="work">
+        <div class="container">
+          <header class="section-head">
+            <p class="kicker">$ cat ~/work/fornax-fe.md</p>
+            <h2 data-i18n="work.title">AI engineering in a real delivery team</h2>
+            <p data-i18n="work.subtitle">
+              At Fornax ICT I built and run fornax-fe, the agentic delivery toolkit our frontend group uses every day.
+            </p>
+          </header>
+
+          <div class="pipeline" aria-label="fornax-fe delivery pipeline">
+            <span data-i18n="pipe.1">work item</span><span data-i18n="pipe.2">analysis</span><span data-i18n="pipe.3">plan</span>
+            <span data-i18n="pipe.4">implementation</span><span data-i18n="pipe.5">CI-parity checks</span>
+            <span data-i18n="pipe.6">reviewer sub-agent</span><span data-i18n="pipe.7">browser QA via MCP</span><span data-i18n="pipe.8">merge request</span>
+          </div>
+
+          <div class="grid work-grid">
+            <div class="card stat-card"><span class="big">4–6</span><span data-i18n="work.s1">developers across 5 enterprise repositories</span></div>
+            <div class="card stat-card"><span class="big">127</span><span data-i18n="work.s2">lessons captured in the first 3 weeks</span></div>
+            <div class="card stat-card"><span class="big">39</span><span data-i18n="work.s3">CI-validated, auto-merged improvement MRs</span></div>
+            <div class="card stat-card"><span class="big">9</span><span data-i18n="work.s4">lessons promoted to team rules</span></div>
+          </div>
+
+          <div class="grid two">
+            <div class="card">
+              <h3 data-i18n="work.c1.title">A toolkit that learns</h3>
+              <p data-i18n="work.c1.body">
+                Corrections and failed quality gates become lessons that CI validates and merges on its own, so the agents get better
+                with every task the team ships.
+              </p>
+            </div>
+            <div class="card">
+              <h3 data-i18n="work.c2.title">Guardrails and cost by design</h3>
+              <p data-i18n="work.c2.body">
+                Human approval gates, protected paths and git guard hooks; bulk work routed to cheaper OpenAI-compatible models;
+                about 1,600 lines of Python tooling for Azure DevOps and GitLab.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── Skills ───────────────────────────────────────────────────────────── -->
+      <section class="section" id="skills">
+        <div class="container">
+          <header class="section-head">
+            <p class="kicker">$ skills --group</p>
+            <h2 data-i18n="skills.title">What I work with</h2>
+            <p data-i18n="skills.subtitle">Everything listed here is in a repository, a live demo or production work.</p>
+          </header>
+          <div class="grid skills-grid">
+            <div class="card skill-card">
+              <h3>ai_engineering</h3>
+              <div class="tags">
+                <span>LangGraph</span><span>Claude Code agents</span><span>RAG (pgvector, hybrid)</span><span>LLM evals</span>
+                <span>LoRA fine-tuning</span><span>vLLM</span><span>MLflow</span><span>MCP</span><span>OpenTelemetry</span>
+                <span>Anthropic API</span><span>Bedrock</span><span>Guardrails</span>
+              </div>
+            </div>
+            <div class="card skill-card">
+              <h3>ml</h3>
+              <div class="tags"><span>Python</span><span>scikit-learn</span><span>XGBoost</span><span>SHAP</span><span>Hugging Face TRL/PEFT</span><span>Tesseract OCR</span></div>
+            </div>
+            <div class="card skill-card">
+              <h3>backend</h3>
+              <div class="tags"><span>FastAPI</span><span>Node.js / Express</span><span>Java 17</span><span>Spring Boot</span><span>PostgreSQL</span><span>Liquibase</span><span>Keycloak</span></div>
+            </div>
+            <div class="card skill-card">
+              <h3>frontend</h3>
+              <div class="tags"><span>Angular</span><span>TypeScript</span><span>RxJS</span><span>NgRx</span><span>React</span><span>PrimeNG</span><span>NG-ZORRO</span><span>Material</span></div>
+            </div>
+            <div class="card skill-card">
+              <h3>cloud_delivery</h3>
+              <div class="tags"><span>AWS (Lambda, S3, SQS, CloudFront)</span><span>Terraform</span><span>Docker</span><span>GitHub Actions</span><span>GitLab CI/CD</span><span>Azure DevOps</span><span>SonarQube</span><span>Playwright</span></div>
+            </div>
+            <div class="card skill-card">
+              <h3>now_building</h3>
+              <div class="tags"><span>Azure AI (OpenAI, AI Foundry)</span><span>Kubernetes</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── Experience ───────────────────────────────────────────────────────── -->
+      <section class="section alt" id="experience">
+        <div class="container">
+          <header class="section-head">
+            <p class="kicker">$ work_history --order=desc</p>
+            <h2 data-i18n="exp.title">Experience</h2>
+          </header>
+
+          <ol class="timeline">
+            <li class="tl-item">
+              <div class="tl-head">
+                <h3 data-i18n="exp.j1.title">AI Engineer</h3>
+                <p class="tl-meta"><span>Fornax ICT Kft.</span> · <span data-i18n="exp.j1.when">Feb 2026 – present</span></p>
+              </div>
+              <ul class="bullets">
+                <li data-i18n="exp.j1.li1">Built and own fornax-fe, an agentic delivery toolkit on Claude Code used by 4–6 developers across 5 enterprise repos.</li>
+                <li data-i18n="exp.j1.li2">Self-improving learning loop: 127 lessons, 39 auto-merged MRs and 9 team rules in the first 3 weeks.</li>
+                <li data-i18n="exp.j1.li3">Rolled out AI-assisted development to the team; AI features from PoC and presales to production, including a design-to-code pipeline.</li>
+              </ul>
+            </li>
+            <li class="tl-item">
+              <div class="tl-head">
+                <h3 data-i18n="exp.j2.title">Frontend Developer</h3>
+                <p class="tl-meta"><span>Fornax ICT Kft.</span> · <span data-i18n="exp.j2.when">Mar 2023 – present</span></p>
+              </div>
+              <ul class="bullets">
+                <li data-i18n="exp.j2.li1">Angular UIs and a shared component library for workflow, records-management and GIS platforms.</li>
+                <li data-i18n="exp.j2.li2">End to end: PostgreSQL/Liquibase migrations, jBPM processes and forms, Keycloak/OAuth2, a Node.js GitLab ↔ Azure DevOps webhook service.</li>
+                <li data-i18n="exp.j2.li3">Quality: a Java Selenium UI-test framework; Playwright, Vitest and SonarQube quality gates.</li>
+              </ul>
+            </li>
+            <li class="tl-item">
+              <div class="tl-head">
+                <h3 data-i18n="exp.j3.title">Frontend Developer / IT Business Analyst</h3>
+                <p class="tl-meta"><span>Digitális Kormányzati Fejlesztés és Projektmenedzsment Kft.</span> · <span data-i18n="exp.j3.when">Jan 2022 – Mar 2023</span></p>
+              </div>
+              <ul class="bullets">
+                <li data-i18n="exp.j3.li1">Angular development and business analysis for digital-government projects: requirement specs, procurement templates, service-design workshops.</li>
+              </ul>
+            </li>
+            <li class="tl-item muted-item">
+              <div class="tl-head">
+                <h3 data-i18n="exp.j4.title">Business and project roles</h3>
+                <p class="tl-meta"><span>2012 – 2022</span></p>
+              </div>
+              <p data-i18n="exp.j4.body">
+                Real-estate business analyst (financial models, feasibility studies), then project coordinator and manager in
+                international programmes (USA, UK, CEE partners), then public-education procurement and EU grants. It is why I start
+                from the process, the risk and the ROI.
+              </p>
+            </li>
+          </ol>
+
+          <div class="grid two edu">
+            <div class="card">
+              <h3 data-i18n="edu.title">Education</h3>
+              <ul class="plain">
+                <li><strong data-i18n="edu.1.what">MSc, Business Development</strong> <span>Corvinus University of Budapest · 2011–2014</span></li>
+                <li><strong data-i18n="edu.2.what">BSc, Business Administration &amp; Management</strong> <span>Corvinus University of Budapest · 2007–2010</span></li>
+              </ul>
+            </div>
+            <div class="card">
+              <h3 data-i18n="cert.title">Training</h3>
+              <ul class="plain">
+                <li><strong data-i18n="cert.1.what">Junior Frontend Developer</strong> <span>PROGmasters · 2021–2022</span></li>
+                <li><strong data-i18n="cert.2.what">e-Administration Expert</strong> <span>Königsberg Consulting · 2022</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── Contact ──────────────────────────────────────────────────────────── -->
+      <section class="section" id="contact">
+        <div class="container">
+          <div class="contact-card">
+            <p class="kicker">$ contact --now</p>
+            <h2 data-i18n="contact.title">Building AI into a regulated business process? Let's talk.</h2>
+            <p data-i18n="contact.body">
+              I'm open to AI Engineer and Applied AI roles in Budapest or remote in the EU, especially in banking, insurance, telco
+              and the public sector.
+            </p>
+            <div class="contact-actions">
+              <a class="btn primary" href="mailto:hartmann.attila88@gmail.com">hartmann.attila88@gmail.com</a>
+              <a class="btn ghost" href="https://www.linkedin.com/in/attila-hartmann-b7b41a24b/" target="_blank" rel="noopener">LinkedIn ↗</a>
+            </div>
+            <div class="cv-links">
+              <span data-i18n="contact.cv">CV (PDF):</span>
+              <a href="assets/cv/Attila-Hartmann-CV-EN.pdf" download>English</a>
+              <a href="assets/cv/Hartmann-Attila-CV-HU.pdf" download>Magyar</a>
             </div>
           </div>
         </div>
@@ -533,6 +392,7 @@
     <footer class="footer">
       <div class="container footer-inner">
         <p>© <span id="year"></span> Attila Hartmann</p>
+        <p class="muted" data-i18n="footer.note">Hand-written HTML, CSS and JavaScript. No framework, no tracking.</p>
       </div>
     </footer>
 
