@@ -3,6 +3,8 @@
 const translations = {
   en: {
     "a11y.skip": "Skip to content",
+    "name": "Attila Hartmann",
+    "hero.alt": "Portrait of Attila Hartmann",
     "nav.projects": "Projects",
     "nav.work": "Work",
     "nav.skills": "Skills",
@@ -110,6 +112,8 @@ const translations = {
 
   hu: {
     "a11y.skip": "Ugrás a tartalomra",
+    "name": "Hartmann Attila",
+    "hero.alt": "Hartmann Attila portréja",
     "nav.projects": "Projektek",
     "nav.work": "Munka",
     "nav.skills": "Készségek",
@@ -237,6 +241,11 @@ function applyTranslations(lang) {
   document.querySelectorAll("[data-i18n-title]").forEach((el) => {
     const val = translations[lang]?.[el.getAttribute("data-i18n-title")] ?? translations["en"][el.getAttribute("data-i18n-title")];
     if (val !== undefined) el.setAttribute("title", val);
+  });
+
+  document.querySelectorAll("[data-i18n-alt]").forEach((el) => {
+    const val = translations[lang]?.[el.getAttribute("data-i18n-alt")] ?? translations["en"][el.getAttribute("data-i18n-alt")];
+    if (val !== undefined) el.setAttribute("alt", val);
   });
 
   document.documentElement.setAttribute("lang", lang);
